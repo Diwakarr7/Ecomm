@@ -25,6 +25,15 @@ function HomePage() {
   },[])
 
 
+
+  //  delete product
+
+  const deleteProduct = (itemId)=>{
+      console.log(itemId)
+    const del = products.filter((item)=> item.id !== itemId);
+      setProducts([...del]);
+  }
+
   // search for products
   const searchProduct = ()=>{
         const filterProduct = products.filter((product)=> product.title.toLowerCase().includes(search.toLowerCase()))
@@ -79,7 +88,11 @@ function HomePage() {
         ) : (
           <ul className="w-full gap-4  grid sm:grid-cols-2 md:grid-cols-3">
             {searchProduct().map((product) => (
-              <ProductItem key={product.id} product={product} />
+              <ProductItem
+                key={product.id}
+                product={product}
+                deleteProduct={deleteProduct}
+              />
             ))}
           </ul>
         )}
@@ -91,7 +104,11 @@ function HomePage() {
         </h1>
         <ul className="w-full gap-4  grid sm:grid-cols-2 md:grid-cols-3">
           {menProducts().map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductItem
+              key={product.id}
+              product={product}
+              deleteProduct={deleteProduct}
+            />
           ))}
         </ul>
       </div>
@@ -102,7 +119,11 @@ function HomePage() {
         </h1>
         <ul className="w-full gap-4  grid sm:grid-cols-2 md:grid-cols-3">
           {womenProducts().map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductItem
+              key={product.id}
+              product={product}
+              deleteProduct={deleteProduct}
+            />
           ))}
         </ul>
       </div>

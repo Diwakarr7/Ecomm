@@ -12,10 +12,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<HomePage />} />
         <Route path="/products/:id" element={<ProductItemDetails />} />
       </Routes>
       <Footer />
-      {/* footer */}
     </div>
   );
 }
